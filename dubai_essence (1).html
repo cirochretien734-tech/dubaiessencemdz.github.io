@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dubai Essence</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#B8972A;
+  --gold-pale:#D4AA3A;
+  --ink:#0D0D0D;
+  --ink2:#1A1A1A;
+  --warm:#F7F3EC;
+  --warm2:#EDE7DA;
+  --muted:#8C8070;
+  --border:rgba(184,151,42,0.18);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--warm);overflow-x:hidden;font-weight:300}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 4rem;
+  background:rgba(13,13,13,0.95);
+  border-bottom:1px solid var(--border);
+}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);text-decoration:none}
+nav ul{list-style:none;display:flex;gap:2.5rem}
+nav ul a{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+nav ul a:hover{color:var(--warm)}
+.nav-ig{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:1px;transition:color .25s}
+.nav-ig:hover{color:var(--gold)}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:8rem 4rem 6rem;
+  border-bottom:1px solid var(--border);
+}
+.hero-inner{max-width:680px}
+.hero-label{font-size:0.62rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;font-weight:400}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,9vw,7.5rem);
+  font-weight:300;line-height:0.95;
+  color:var(--warm);
+  letter-spacing:-0.01em;
+  margin-bottom:1rem;
+}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-line{width:40px;height:1px;background:var(--gold);margin:2rem 0}
+.hero-desc{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.25rem;font-weight:300;
+  color:var(--muted);line-height:1.7;max-width:440px;
+  margin-bottom:3rem;
+}
+.hero-cta{
+  display:inline-block;font-size:0.68rem;letter-spacing:0.3em;
+  text-transform:uppercase;color:var(--ink);background:var(--gold);
+  text-decoration:none;padding:0.9rem 2.2rem;font-weight:500;
+  transition:background .25s,transform .25s;
+}
+.hero-cta:hover{background:var(--gold-pale);transform:translateY(-1px)}
+
+/* DIVIDER */
+.rule{border:none;border-top:1px solid var(--border);margin:0}
+
+/* ABOUT */
+.about{padding:7rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center;border-bottom:1px solid var(--border)}
+.about-label{font-size:0.62rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.2;color:var(--warm);margin-bottom:1.5rem}
+.about-body{font-size:0.88rem;line-height:1.95;color:var(--muted)}
+.about-stats{display:flex;flex-direction:column;gap:2rem}
+.stat-item{border-left:1px solid var(--gold);padding-left:1.5rem}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.3rem}
+.stat-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted)}
+
+/* PRODUCTS */
+.products{padding:7rem 4rem;border-bottom:1px solid var(--border)}
+.products-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem}
+.products-head-left .section-label{font-size:0.62rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.products-head-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:300;color:var(--warm)}
+.products-head-note{font-size:0.75rem;color:var(--muted);letter-spacing:0.05em;text-align:right;max-width:200px;line-height:1.7}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.product-card{
+  background:var(--ink);
+  padding:2.5rem 2rem;
+  display:flex;flex-direction:column;
+  transition:background .3s;
+}
+.product-card:hover{background:var(--ink2)}
+.prod-house{font-size:0.58rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;font-weight:400}
+.prod-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;color:var(--warm);margin-bottom:0.25rem;line-height:1.2}
+.prod-type{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.prod-desc{font-size:0.82rem;line-height:1.85;color:var(--muted);flex-grow:1;margin-bottom:1.5rem}
+.prod-notes{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.5rem}
+.note{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);padding:0.2rem 0.5rem;border:1px solid rgba(184,151,42,0.2)}
+.prod-btn{
+  display:block;text-align:center;text-decoration:none;
+  font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--border);
+  padding:0.7rem;transition:all .25s;font-weight:400;
+}
+.prod-btn:hover{background:var(--gold);color:var(--ink)}
+
+/* CTA */
+.cta-section{
+  padding:8rem 4rem;text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+}
+.cta-label{font-size:0.62rem;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:300;color:var(--warm);line-height:1.1;margin-bottom:1.5rem}
+.cta-title em{font-style:italic;color:var(--gold)}
+.cta-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--muted);margin-bottom:3rem;max-width:420px;line-height:1.7}
+.cta-line{width:40px;height:1px;background:var(--gold);margin:0 auto 3rem}
+.ig-btn{
+  display:inline-flex;align-items:center;gap:0.7rem;
+  background:transparent;border:1px solid var(--gold);
+  color:var(--gold);font-size:0.7rem;letter-spacing:0.25em;
+  text-transform:uppercase;text-decoration:none;padding:1rem 2.5rem;
+  transition:all .25s;font-weight:400;
+}
+.ig-btn:hover{background:var(--gold);color:var(--ink)}
+.ig-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0}
+
+/* FOOTER */
+footer{
+  padding:3rem 4rem;
+  border-top:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+.footer-links a:hover{color:var(--warm)}
+.footer-copy{font-size:0.62rem;letter-spacing:0.1em;color:rgba(140,128,112,0.4)}
+
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem}
+  nav ul{display:none}
+  .hero{padding:7rem 1.5rem 4rem}
+  .about{grid-template-columns:1fr;gap:3rem;padding:5rem 1.5rem}
+  .products{padding:5rem 1.5rem}
+  .products-grid{grid-template-columns:1fr}
+  .products-head{flex-direction:column;align-items:flex-start;gap:1rem}
+  .products-head-note{text-align:left}
+  .cta-section{padding:5rem 1.5rem}
+  footer{flex-direction:column;gap:2rem;text-align:center;padding:2.5rem 1.5rem}
+  .footer-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Dubai Essence</a>
+  <ul>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#coleccion">Colección</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="nav-ig">@dubai_essence.mdz</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">Perfumería árabe · Argentina</p>
+    <h1 class="hero-title">Dubai<br><em>Essence</em></h1>
+    <div class="hero-line"></div>
+    <p class="hero-desc">Fragancias auténticas de las grandes casas árabes, disponibles en Argentina.</p>
+    <a href="#coleccion" class="hero-cta">Ver colección</a>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="nosotros" class="about">
+  <div>
+    <p class="about-label">Sobre nosotros</p>
+    <h2 class="about-title">El oriente<br>en tu piel</h2>
+    <p class="about-body">
+      Dubai Essence nació de una pasión genuina por las fragancias del mundo árabe. Desde Argentina, acercamos perfumes de casas reconocidas como Lattafa, Afnan, Al Haramain y Swiss Arabian — marcas que en Medio Oriente son sinónimo de calidad y tradición.<br><br>
+      Cada frasco que elegimos tiene historia. Ouds profundos, musks sedosos, ámbar cálido. Fragancias que permanecen.
+    </p>
+  </div>
+  <div class="about-stats">
+    <div class="stat-item">
+      <div class="stat-num">4+</div>
+      <div class="stat-label">Casas árabes reconocidas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Productos originales</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">AR</div>
+      <div class="stat-label">Envíos a todo el país</div>
+    </div>
+  </div>
+</section>
+
+<section id="coleccion" class="products">
+  <div class="products-head">
+    <div class="products-head-left">
+      <p class="section-label">Colección</p>
+      <h2>Fragancias disponibles</h2>
+    </div>
+    <p class="products-head-note">Consultá disponibilidad por Instagram</p>
+  </div>
+
+  <div class="products-grid">
+
+    <div class="product-card">
+      <p class="prod-house">Lattafa</p>
+      <h3 class="prod-name">Khamrah</h3>
+      <p class="prod-type">Eau de Parfum · 100 ml</p>
+      <p class="prod-desc">Uno de los perfumes árabes más virales del mundo. Oud, vainilla y cardamomo crean una fragancia oriental dulce y envolvente con una estela brutal.</p>
+      <div class="prod-notes">
+        <span class="note">Oud</span><span class="note">Vainilla</span><span class="note">Cardamomo</span><span class="note">Ámbar</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+    <div class="product-card">
+      <p class="prod-house">Lattafa</p>
+      <h3 class="prod-name">Oud For Glory</h3>
+      <p class="prod-type">Eau de Parfum · 80 ml</p>
+      <p class="prod-desc">Oud ahumado con especias orientales y cuero. Una de las fragancias más reconocidas de Lattafa. Proyección y duración excepcionales.</p>
+      <div class="prod-notes">
+        <span class="note">Oud</span><span class="note">Cuero</span><span class="note">Especias</span><span class="note">Musk</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+    <div class="product-card">
+      <p class="prod-house">Lattafa</p>
+      <h3 class="prod-name">Raghba</h3>
+      <p class="prod-type">Eau de Parfum · 100 ml</p>
+      <p class="prod-desc">Un clásico imprescindible. Dulce, especiado y cálido — incienso, oud y benjuí en perfecta armonía. Un superventas árabe por décadas.</p>
+      <div class="prod-notes">
+        <span class="note">Incienso</span><span class="note">Benjuí</span><span class="note">Oud</span><span class="note">Rosa</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+    <div class="product-card">
+      <p class="prod-house">Afnan</p>
+      <h3 class="prod-name">9 PM</h3>
+      <p class="prod-type">Eau de Parfum · 100 ml</p>
+      <p class="prod-desc">El perfume árabe más popular en TikTok y YouTube. Canela, vainilla y caramelo sobre base amaderada. Potencia bestial a precio accesible.</p>
+      <div class="prod-notes">
+        <span class="note">Canela</span><span class="note">Vainilla</span><span class="note">Caramelo</span><span class="note">Madera</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+    <div class="product-card">
+      <p class="prod-house">Al Haramain</p>
+      <h3 class="prod-name">Amber Oud Gold</h3>
+      <p class="prod-type">Eau de Parfum · 60 ml</p>
+      <p class="prod-desc">Ámbar dorado con oud y florales suaves. Unisex y de presencia imponente. Uno de los más vendidos de Al Haramain a nivel mundial.</p>
+      <div class="prod-notes">
+        <span class="note">Ámbar</span><span class="note">Oud</span><span class="note">Floral</span><span class="note">Musk</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+    <div class="product-card">
+      <p class="prod-house">Al Haramain</p>
+      <h3 class="prod-name">Midnight Oud</h3>
+      <p class="prod-type">Eau de Parfum · 60 ml</p>
+      <p class="prod-desc">Oud profundo y sensual sobre un fondo de rosas y especias. Fragancia de noche por excelencia, con una estela intensa que conquista.</p>
+      <div class="prod-notes">
+        <span class="note">Oud</span><span class="note">Rosa</span><span class="note">Especias</span><span class="note">Madera</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+    <div class="product-card">
+      <p class="prod-house">Lattafa</p>
+      <h3 class="prod-name">Mandarin Sky</h3>
+      <p class="prod-type">Eau de Parfum · 100 ml</p>
+      <p class="prod-desc">Fresco, frutal y luminoso. Mandarina italiana, bergamota y un corazón floral con base de cedro y musk blanco. Ideal para el día a día en cualquier clima.</p>
+      <div class="prod-notes">
+        <span class="note">Mandarina</span><span class="note">Bergamota</span><span class="note">Cedro</span><span class="note">Musk</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+    <div class="product-card">
+      <p class="prod-house">Armaf</p>
+      <h3 class="prod-name">Club de Nuit Intense</h3>
+      <p class="prod-type">Eau de Parfum · 105 ml</p>
+      <p class="prod-desc">El perfume árabe más vendido del mundo. Inspirado en el Creed Aventus, con piña, abedul ahumado y musks. Proyección extraordinaria a una fracción del precio del original.</p>
+      <div class="prod-notes">
+        <span class="note">Piña</span><span class="note">Abedul</span><span class="note">Pachulí</span><span class="note">Musk</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+    <div class="product-card">
+      <p class="prod-house">Rasasi</p>
+      <h3 class="prod-name">Hawas Ice</h3>
+      <p class="prod-type">Eau de Parfum · 100 ml</p>
+      <p class="prod-desc">La versión glacial del icónico Hawas. Menta ártica, cítricos y maderas frías crean una fragancia fresca e intensa, perfecta para el calor del verano.</p>
+      <div class="prod-notes">
+        <span class="note">Menta</span><span class="note">Cítricos</span><span class="note">Madera</span><span class="note">Musk</span>
+      </div>
+      <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="prod-btn">Consultar disponibilidad</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contacto" class="cta-section">
+  <p class="cta-label">Hacé tu pedido</p>
+  <h2 class="cta-title">¿Encontraste<br>tu <em>fragancia</em>?</h2>
+  <div class="cta-line"></div>
+  <p class="cta-sub">Escribinos por Instagram para consultar precios, disponibilidad y coordinar el envío.</p>
+  <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank" class="ig-btn">
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+    </svg>
+    Escribir por Instagram
+  </a>
+</section>
+
+<footer>
+  <span class="footer-logo">Dubai Essence</span>
+  <div class="footer-links">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#coleccion">Colección</a>
+    <a href="https://www.instagram.com/dubai_essence.mdz/" target="_blank">Instagram</a>
+  </div>
+  <span class="footer-copy">© 2025 Dubai Essence · Argentina</span>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-72,behavior:'smooth'})}
+  })
+});
+</script>
+</body>
+</html>
